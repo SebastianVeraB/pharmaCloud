@@ -1,3 +1,13 @@
 import { LightningElement } from 'lwc';
 
-export default class PharmaCloudMain extends LightningElement {}
+
+export default class PharmaCloudMain extends LightningElement {
+ 
+
+   
+        
+   
+
+   
+}
+

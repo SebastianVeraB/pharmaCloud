@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader">
+    <c:pharmaCloudMain></c:pharmaCloudMain>
+
+</aura:component>	
