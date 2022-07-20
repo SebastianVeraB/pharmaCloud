@@ -5,7 +5,7 @@
           <div class="slds-combobox_container">
             <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" onclick={toggleDropdown}>
               <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
-                <input type="text" class="slds-input slds-combobox__input" id="combobox-id-1" aria-autocomplete="list" aria-controls="listbox-id-1" aria-expanded="false" aria-haspopup="listbox"  role="combobox" placeholder="Search..." />
+                <input onkeyup={handleSearch} type="text" class="slds-input slds-combobox__input" id="combobox-id-1" aria-autocomplete="list" aria-controls="listbox-id-1" aria-expanded="false" aria-haspopup="listbox"  role="combobox" placeholder="Search..." />
                 <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
                     <lightning-icon icon-name="utility:search" alternative-text="Search" title="Search" size="xx-small"></lightning-icon>
                 </span>
