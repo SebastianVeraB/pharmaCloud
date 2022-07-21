@@ -1,3 +1,10 @@
-import { LightningElement } from 'lwc';
+import { api, LightningElement, track } from 'lwc';
 
-export default class PharmaCloudDropDown extends LightningElement {}
+export default class PharmaCloudDropDown extends LightningElement {
+
+    @api dropdownList
+
+    check() {
+        console.log(this.dropdownList)
+    }
+}

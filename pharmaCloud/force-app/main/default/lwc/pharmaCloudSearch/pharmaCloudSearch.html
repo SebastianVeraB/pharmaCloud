@@ -3,14 +3,17 @@
         <label class="slds-form-element__label" for="combobox-id-1" id="combobox-label-id-35">Search by Product Name or Active Ingredient</label>
         <div class="slds-form-element__control">
           <div class="slds-combobox_container">
-            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" onclick={toggleDropdown}>
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" data-id="dropdown">
               <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
                 <input onkeyup={handleSearch} type="text" class="slds-input slds-combobox__input" id="combobox-id-1" aria-autocomplete="list" aria-controls="listbox-id-1" aria-expanded="false" aria-haspopup="listbox"  role="combobox" placeholder="Search..." />
                 <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
                     <lightning-icon icon-name="utility:search" alternative-text="Search" title="Search" size="xx-small"></lightning-icon>
                 </span>
               </div>
-            <c-pharma-cloud-drop-down></c-pharma-cloud-drop-down>
+              <template if:true={loaded}>
+                <c-pharma-cloud-drop-down dropdown-list={listForDropDown}></c-pharma-cloud-drop-down>
+              </template>
+            
             </div>
           </div>
         </div>
