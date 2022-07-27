@@ -1,7 +1,7 @@
 <!-- sldsValidatorIgnore -->
 <template>
 
-  <c-pharma-cloud-search onselect={handleSelect}></c-pharma-cloud-search>
+  <c-pharma-cloud-search onselect={handleSelect} onclear={handleClear}></c-pharma-cloud-search>
 
   <template if:true={hasItemSelected}>
     <c-pharma-drug-description description={description}></c-pharma-drug-description>

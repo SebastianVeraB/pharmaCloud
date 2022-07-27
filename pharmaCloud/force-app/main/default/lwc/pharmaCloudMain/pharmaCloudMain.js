@@ -39,6 +39,12 @@ export default class PharmaCloudMain extends LightningElement {
         return selectedItem.quantity === element.quantity && selectedItem.generic_name === element.generic_name;
         
     };
+
+    handleClear() {
+        this.hasItemSelected = false;
+        this.description = '';
+        this.listOfInterchangeables = [];
+    }
         
    
 

@@ -4,7 +4,7 @@ export default class PharmaCloudSearch extends LightningElement {
 
     @track queryResoult;
     @track listForDropDown;
-    @track loaded = false;
+    @track isLoaded = false;
     @track hasItemSelected = false;
     @track itemDescription;
 
@@ -33,6 +33,14 @@ export default class PharmaCloudSearch extends LightningElement {
 
     };
 
+    handleRemove() {
+
+        this.hasItemSelected =false;
+        this.isLoaded = false;
+        this.dispatchEvent(new CustomEvent('clear'));
+
+    };
+
     queryAPI() {
         
 
@@ -53,7 +61,7 @@ export default class PharmaCloudSearch extends LightningElement {
                  this.queryResoult = resp;
                  this.listForDropDown = this.filterUniques(resp)
                  
-                 this.loaded = true;
+                 this.isLoaded = true;
                  this.toggleDropdown();
                 });
     };
