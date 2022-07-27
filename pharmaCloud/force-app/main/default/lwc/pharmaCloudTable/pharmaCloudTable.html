@@ -1,46 +1,37 @@
 <template>
-   
-    <div style="height: 300px;" class="slds-var-m-top_small">
-        <label class="slds-form-element__label">Interchangeables</label>
-        <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example table of Opportunities with a single column">
-            <thead>
-              <tr class="slds-line-height_reset">
-                <th class="" scope="col">
-                  <div class="slds-truncate" title="Opportunity Name">Product</div>
-                </th>
-                <th class="" scope="col">
-                    <div class="slds-truncate" title="Opportunity Name">Form</div>
-                  </th>
-              </tr>
-            </thead>
+ 
+  <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-var-m-top_x-small">
+    <thead>
+      <tr class="slds-line-height_reset">
+        <th class="" scope="col">
+          <div class="slds-truncate" title="Opportunity Name">Interchangeable Products</div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+    <div style="height: 10rem;" class="slds-scrollable">
+      <table class="slds-table slds-table_cell-buffer slds-table_header-hidden slds-table_bordered" aria-label="Example headless table of Opportunities">
+        <thead class="slds-assistive-text">
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Opportunity Name">Product</div>
+            </th>
+          </tr>
+        </thead>
             <tbody>
-              <tr class="slds-hint-parent">
+            <template for:each={items} for:item="item">
+              <tr class="slds-hint-parent"  key={item.ndc_product_code}>
                 <td data-label="Opportunity Name">
                   <div class="slds-truncate" title="Cloudhub">
-                    <a class="slds-listbox__option-text slds-listbox__option-text_entity">Neurontin, Pfizzer</a>
-                    <span class="slds-listbox__option-meta slds-listbox__option-meta_entit" style="color:#969696">Gabapentin • 300 / 150 mg</span>
+                    <a class="slds-listbox__option-text slds-listbox__option-text_entity">{item.product_name}, {item.assigned_entity}</a>
+                    <span class="slds-listbox__option-meta slds-listbox__option-meta_entit" style="color:#969696">{item.generic_name} • {item.quantity}{item.unit}, {item.form}</span>
                   </div>
                 </td>
-                <td data-label="Opportunity Name">
-                    <div class="slds-truncate" title="Cloudhub">
-                      <span tabindex="-1">Capsules</span>
-                    </div>
-                  </td>
               </tr>
-              <tr class="slds-hint-parent">
-                <td data-label="Opportunity Name">
-                    <div class="slds-truncate" title="Cloudhub">
-                      <a class="slds-listbox__option-text slds-listbox__option-text_entity">Gabapentin, Astra Zenca</a>
-                      <span class="slds-listbox__option-meta slds-listbox__option-meta_entit" style="color:#969696">Gabapentin • 300 / 150 mg</span>
-                    </div>
-                  </td>
-                <td data-label="Opportunity Name">
-                    <div class="slds-truncate" title="Cloudhub + Anypoint Connectors">
-                      <span tabindex="-1">Tablets</span>
-                    </div>
-                  </td>
-              </tr>
-            </tbody>
-          </table>
+            </template>
+          </tbody>
+      </table>
     </div>
 </template>

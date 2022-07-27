@@ -1,9 +1,9 @@
 <template>
-    <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox" onclick={check}>
+    <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox" >
      
         <ul class="slds-listbox slds-listbox_vertical" role="presentation">
           <template for:each={dropdownList} for:item="item">
-          <li role="presentation" class="slds-listbox__item" key={item.ndc_product_code}>
+          <li role="presentation" class="slds-listbox__item" key={item.ndc_product_code} data-id={item.ndc_product_code} onclick={handleItemClick}>
             <div id="option3" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
               <span class="slds-media__figure slds-listbox__option-icon">
                 <span class="slds-icon_container">

@@ -3,8 +3,11 @@ import { api, LightningElement, track } from 'lwc';
 export default class PharmaCloudSearch extends LightningElement {
 
     @track queryResoult;
-    @track listForDropDown
-    @track loaded = false
+    @track listForDropDown;
+    @track loaded = false;
+    @track hasItemSelected = false;
+    @track itemDescription;
+
     timer;
     searchTerm;
 
@@ -13,6 +16,21 @@ export default class PharmaCloudSearch extends LightningElement {
     toggleDropdown() {
         const dropdown = this.template.querySelector('[data-id="dropdown"]');
         dropdown.classList.toggle('slds-is-open');
+    };
+
+    toogleSelect(event) {
+        const container = this.template.querySelector('[data-id="container"]');
+        container.classList.toggle('slds-has-selection');
+
+        let selectedItem = event.detail;
+
+        this.hasItemSelected = true;
+        this.itemDescription = selectedItem.generic_name + "  •  " + selectedItem.quantity + selectedItem.unit;
+
+        let selectedAndQueryResult = {selectedItem: selectedItem, queryResoult: this.queryResoult};
+        this.dispatchEvent(new CustomEvent('select', {detail:selectedAndQueryResult}));
+        this.toggleDropdown();
+
     };
 
     queryAPI() {

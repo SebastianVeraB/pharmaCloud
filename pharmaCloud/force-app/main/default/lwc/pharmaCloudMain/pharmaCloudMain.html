@@ -1,15 +1,16 @@
 <!-- sldsValidatorIgnore -->
 <template>
 
-   <c-pharma-cloud-search></c-pharma-cloud-search>
+  <c-pharma-cloud-search onselect={handleSelect}></c-pharma-cloud-search>
 
-      
-  <c-pharma-drug-description></c-pharma-drug-description>
-      
+  <template if:true={hasItemSelected}>
+    <c-pharma-drug-description description={description}></c-pharma-drug-description>
+  </template> 
 
-  <c-pharma-cloud-table></c-pharma-cloud-table>
+  <template if:true={hasItemSelected}>
+    <c-pharma-cloud-table items={listOfInterchangeables}></c-pharma-cloud-table>
+  </template>
 
-   
     
 </template>
 
