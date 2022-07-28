@@ -11,6 +11,10 @@
     <c-pharma-cloud-table items={listOfInterchangeables}></c-pharma-cloud-table>
   </template>
 
+  <template if:false={hasItemSelected}>
+    <c-pharma-cloud-no-data ></c-pharma-cloud-no-data>
+  </template>
+
     
 </template>
 

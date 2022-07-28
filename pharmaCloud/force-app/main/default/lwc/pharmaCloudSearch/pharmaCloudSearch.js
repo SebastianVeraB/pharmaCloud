@@ -8,10 +8,7 @@ export default class PharmaCloudSearch extends LightningElement {
     @track hasItemSelected = false;
     @track itemDescription;
 
-    timer;
     searchTerm;
-
-    delay = t => new Promise(resolve => this.timer = setTimeout(resolve, t));
 
     toggleDropdown() {
         const dropdown = this.template.querySelector('[data-id="dropdown"]');
@@ -67,10 +64,9 @@ export default class PharmaCloudSearch extends LightningElement {
     };
 
     handleSearch(event) {
-        if (event.key.match(/^[a-zA-Z-0-9]$/g)) {
-            clearTimeout(this.timer);
+        if (event.key === 'Enter') {
             this.searchTerm = event.target.value;
-            this.delay(1000).then(() => this.queryAPI());
+            this.queryAPI();
         }
     };
 
