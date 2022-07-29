@@ -16,16 +16,16 @@
         <thead class="slds-assistive-text">
           <tr class="slds-line-height_reset">
             <th class="" scope="col">
-              <div class="slds-truncate" title="Opportunity Name">Product</div>
+              <div class="slds-truncate" title="Product">Product</div>
             </th>
           </tr>
         </thead>
             <tbody>
             <template for:each={items} for:item="item">
               <tr class="slds-hint-parent"  key={item.ndc_product_code}>
-                <td data-label="Opportunity Name">
-                  <div class="slds-truncate" title="Cloudhub">
-                    <a class="slds-listbox__option-text slds-listbox__option-text_entity">{item.product_name}, {item.assigned_entity}</a>
+                <td data-label="Product">
+                  <div class="slds-truncate" title="Specs">
+                    <a class="slds-listbox__option-text slds-listbox__option-text_entity" data-id={item.id}  onclick={handleClick}> {item.product_name}, {item.assigned_entity}</a>
                     <span class="slds-listbox__option-meta slds-listbox__option-meta_entit" style="color:#969696">{item.generic_name} • {item.quantity}{item.unit}, {item.form}</span>
                   </div>
                 </td>

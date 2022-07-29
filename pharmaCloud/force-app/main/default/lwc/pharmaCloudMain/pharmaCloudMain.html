@@ -8,11 +8,15 @@
   </template> 
 
   <template if:true={hasItemSelected}>
-    <c-pharma-cloud-table items={listOfInterchangeables}></c-pharma-cloud-table>
+    <c-pharma-cloud-table items={listOfInterchangeables} onshowspecs={handleShowSpecs}></c-pharma-cloud-table>
+    <template if:true={isShowingSpecs}>
+      <c-pharma-cloud-specs-viewer link={linkToShow} header={selectedItemTitle} onclose={handleClose}></c-pharma-cloud-specs-viewer>
+    </template>
+   
   </template>
 
   <template if:false={hasItemSelected}>
-    <c-pharma-cloud-no-data ></c-pharma-cloud-no-data>
+   <c-pharma-cloud-no-data></c-pharma-cloud-no-data>
   </template>
 
     
