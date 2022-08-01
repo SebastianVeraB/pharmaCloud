@@ -7,8 +7,37 @@ export default class PharmaCloudSearch extends LightningElement {
     @track isLoaded = false;
     @track hasItemSelected = false;
     @track itemDescription;
+    @track isProductSelected = false;
+    @track value = 'Active Ingredient';
 
     searchTerm;
+
+
+    handleChange(event) {
+        this.value = event.detail.value;
+    };
+
+    handleComboboxclick() {
+        const combo = this.template.querySelector('[data-id="combo"]');
+        combo.classList.toggle('slds-is-open');
+
+        const buttonDrop = this.template.querySelector('[data-id="buttonDrop"]');
+        buttonDrop.classList.toggle('expand-contract');
+
+    };
+
+    handleActiveIngredientClick() {
+        this.isProductSelected = false;
+        this.value = 'Active Ingredient';
+        this.handleComboboxclick();
+    };
+
+    handleProductClick() {
+        this.isProductSelected = true;
+        this.value = 'Product';
+        this.handleComboboxclick();
+    };
+
 
     toggleDropdown() {
         const dropdown = this.template.querySelector('[data-id="dropdown"]');
@@ -94,4 +123,5 @@ export default class PharmaCloudSearch extends LightningElement {
             }); 
         }
     };
+   
 }
